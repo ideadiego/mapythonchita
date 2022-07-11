@@ -1,24 +1,27 @@
 <template>
-  <main class="px-4 flex justify-center items-center">
+  <main class="px-4 flex flex-col flex-wrap justify-center items-center mb-12 mt-6">
+    <!-- {{marcas}}
+    {{idx}}
+    {{keysSorted}} -->
       <div v-if="loading" class="flex flex-col justify-center items-center p-8 gap-5">
         <p>Cargando...</p>
         <p>Puede que se demore un poco</p>
         <p>Por mientras puedes ver este gif de un gato</p>
         <img class="rounded-lg" src="https://i.pinimg.com/originals/97/e9/42/97e942ce7fc4e9d4ea6d844a382f251f.gif" alt="Loading cat">
       </div>
-      <article v-if="!loading && pages[idx]" class="w-full sm:w-11/12 md:w-10/12 lg:w-9/12 mx-auto flex justify-center">
-        <label class="swap swap-flip">
+      <article v-if="!loading && pages[idx]" class="mx-auto ">
+        <label class="swap swap-flip w-90v sm:w-70v md:w-50v lg:w-40v">
         <input type="checkbox" class="hidden" v-model="tarjeta" />
-        <div class="swap-on bg-neutral text-neutral-content p-5 rounded-lg block">
+        <div class="swap-on bg-neutral text-neutral-content p-5 rounded-lg w-90v sm:w-70v md:w-50v lg:w-40v">
           <h2 class="text-xl font-bold">Pregunta {{pages[idx].slug}}</h2>
             <div class="flex flex-wrap gap-2">
               <div v-for="content in pages[idx].contents" :key="content">
                 <div class="badge badge-secondary badge-sm mt-3">{{content}}</div>
               </div>
             </div>
-            <p class="mt-3 font-lato">{{pages[idx].title}}</p>
+            <p class="mt-3 font-lato">{{pages[idx].question}}</p>
         </div>
-        <div class="swap-off bg-neutral text-neutral-content p-5 rounded-lg block">
+        <div class="swap-off bg-neutral text-neutral-content p-5 rounded-lg w-90v sm:w-70v md:w-50v lg:w-40v">
             <h2 class="text-xl font-bold mb-2">Respuesta</h2>
             <nuxt-content class="font-lato prose max-w-none mx-auto bg-neutral text-neutral-content prose-headings:text-base-content prose-strong:text-base-content prose-img:rounded-md" :document="pages[idx]" />
             <div class="flex justify-evenly pt-4">

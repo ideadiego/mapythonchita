@@ -1,18 +1,6 @@
 @tailwind base;
 @tailwind components;
 
-@tailwind utilities;
-
-/* html{
-  font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,apple color emoji,segoe ui emoji,Segoe UI Symbol,noto color emoji
-} */
-
-/* @layer base{
-    [type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select {
-        @apply bg-gray-800 px-3 py-2
-    }
-} */
-
 .notch{
   clip-path: polygon(5% 0, 100% 0, 100% 82%, 94% 100%, 0 100%, 0 19%);
 }
@@ -157,3 +145,16 @@ text:hover{
 .katex .overline-line {
   border-color: hsl(var(--bc));
 }
+
+@tailwind utilities;
+
+/* html{
+  font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,apple color emoji,segoe ui emoji,Segoe UI Symbol,noto color emoji
+} */
+
+/* @layer base{
+    [type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select {
+        @apply bg-gray-800 px-3 py-2
+    }
+} */
+
