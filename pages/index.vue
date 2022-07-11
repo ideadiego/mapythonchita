@@ -1,7 +1,9 @@
 <template>
   <main class="px-4 flex flex-col flex-wrap justify-center items-center mb-12 mt-6">
     <!-- {{marcas}}
+    <br>
     {{idx}}
+    <br>
     {{keysSorted}} -->
       <div v-if="loading" class="flex flex-col justify-center items-center p-8 gap-5">
         <p>Cargando...</p>
@@ -46,7 +48,7 @@
             let marcas = JSON.parse(localStorage.marcas)
             for(let page of this.pages){
               if (!(page.slug in marcas)){
-                marcas[page.slug] = 100
+                marcas[parseInt(page.slug)] = 100
               }
             }
             localStorage.marcas = JSON.stringify(marcas)
@@ -54,8 +56,7 @@
           else{
             let marcas = {}
             for(let page of this.pages){
-              console.log(page)
-              marcas[page.slug] = 100
+              marcas[parseInt(page.slug)] = 100
             }
             localStorage.marcas = JSON.stringify(marcas)
           }
