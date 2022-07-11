@@ -13,6 +13,7 @@ module.exports = {
           'georama': ['Georama'],
           'bitter': ['Bitter'],
           'lobster': ['Lobster'],
+          'lato': ['Lato'],
           'abril': ['"Abril Fatface"'],
         },
         height: {
@@ -112,7 +113,7 @@ module.exports = {
           "error": "#FB7085",
           "error-content": "#47000B",
         },
-      }
+      }, "valentine", "light", "wireframe", "dark", "cyberpunk"
     ]
   },
   plugins: [

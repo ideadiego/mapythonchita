@@ -134,3 +134,26 @@ text:hover{
 .swap input:indeterminate ~ .swap-indeterminate{
   @apply opacity-100;
 } 
+
+.katex-display > .katex {
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow-x: auto;
+  text-align: initial;
+  padding: 0.5em;
+}
+.katex {
+  font: normal 1.21em KaTeX_Main, Times New Roman, serif;
+  line-height: 1.2;
+  white-space: normal;
+  text-indent: 0;
+}
+
+.katex .mfrac .frac-line {
+  border-color: hsl(var(--bc));
+}
+
+.katex .overline-line {
+  border-color: hsl(var(--bc));
+}

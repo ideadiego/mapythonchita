@@ -69,6 +69,7 @@ export default {
         ital: [100, 200, 300, 400, 500, 600, 700, 800, 900],
       },
       Lobster: [400],
+      Lato: [400],
       'Abril+Fatface': [400]
     }
   },
