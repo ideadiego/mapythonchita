@@ -13,19 +13,20 @@
         <label class="swap swap-flip w-90v sm:w-70v md:w-50v lg:w-40v">
         <input type="checkbox" class="hidden" v-model="tarjeta" />
         <div class="swap-on bg-neutral text-neutral-content p-5 rounded-lg w-90v sm:w-70v md:w-50v lg:w-40v">
-          <h2 class="text-xl font-bold">Pregunta {{pages[idx].slug}}</h2>
+          <h2 class="text-xl font-bold mb-1">Pregunta {{pages[idx].slug}}</h2>
             <div class="flex flex-wrap gap-2">
               <div v-for="content in pages[idx].contents" :key="content">
-                <div class="badge badge-secondary badge-sm mt-3">{{content}}</div>
+                <div class="badge badge-secondary badge-sm my-3">{{content}}</div>
               </div>
             </div>
-            <p class="mt-3 font-lato">{{pages[idx].question}}</p>
+            <p class="py-3 font-lato">{{pages[idx].question}}</p>
         </div>
         <div class="swap-off bg-neutral text-neutral-content p-5 rounded-lg w-90v sm:w-70v md:w-50v lg:w-40v">
             <h2 class="text-xl font-bold mb-2">Respuesta</h2>
-            <nuxt-content class="font-lato prose max-w-none mx-auto bg-neutral text-neutral-content prose-headings:text-base-content prose-strong:text-base-content prose-img:rounded-md" :document="pages[idx]" />
+            <nuxt-content class="py-3 font-lato prose max-w-none mx-auto bg-neutral text-neutral-content prose-headings:text-neutral-content prose-code:text-neutral-content prose-strong:text-neutral-content prose-img:rounded-md" :document="pages[idx]" />
             <div class="flex justify-evenly pt-4">
               <button v-on:click="wrongAnswer" class="btn btn-circle btn-outline btn-info">😥</button>
+              <button v-on:click="mehAnswer" class="btn btn-circle btn-outline btn-warning">🤔</button>
               <button v-on:click="correctAnswer" class="btn btn-circle btn-outline btn-error">🥰</button>
             </div>
         </div>
@@ -96,6 +97,18 @@
         })
         this.tarjeta = true
         this.$set(this.marcas, this.idx, this.marcas[this.idx]+5)
+        localStorage.marcas = JSON.stringify(this.marcas)
+        this.sortMarcas()
+        window.scrollTo({ top: 0 });
+      },
+      mehAnswer(){
+        this.jsConfetti.addConfetti({
+          emojis: ['🤔'],
+          emojiSize: 80,
+          confettiNumber: 40,
+        })
+        this.tarjeta = true
+        this.$set(this.marcas, this.idx, this.marcas[this.idx]+3)
         localStorage.marcas = JSON.stringify(this.marcas)
         this.sortMarcas()
         window.scrollTo({ top: 0 });

@@ -1,9 +1,10 @@
 <template>
   <div class="flex flex-col min-h-screen" data-theme="">
-    <nav class="font-lato flex flex-wrap justify-between items-center z-50 py-2 px-4 sticky top-0 bg-transparent">
+    <nav class="font-lato flex flex-wrap justify-between items-center z-0 py-2 px-4 sticky top-0 bg-transparent">
       <div>
         <nuxt-link class="btn btn-xs btn-ghost" to="/">Home</nuxt-link>
         <nuxt-link class="btn btn-xs btn-ghost" to="/contenidos">Contenidos</nuxt-link>
+        <nuxt-link class="btn btn-xs btn-ghost" to="/preguntas">Todas las preguntas</nuxt-link>
       </div>
       <label class="btn btn-sm btn-circle swap swap-rotate">
           <input data-toggle-theme="light,dark" type="checkbox" v-model="key" true-value="dark" false-value="light" />
