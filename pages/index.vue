@@ -17,8 +17,8 @@
         <div class="swap-on bg-neutral text-neutral-content p-5 rounded-lg w-90v sm:w-70v md:w-50v lg:w-40v">
           <h2 class="text-xl font-bold mb-1">Pregunta {{pages[idx].slug}}</h2>
             <div class="flex flex-wrap gap-2">
-              <div v-for="content in pages[idx].contents" :key="content">
-                <div class="badge badge-secondary badge-sm my-3">{{content}}</div>
+              <div class="badge badge-secondary badge-sm my-3" v-for="content in pages[idx].contents" :key="content">
+                {{content}}
               </div>
             </div>
             <p class="py-3 font-lato">{{pages[idx].question}}</p>
@@ -48,7 +48,7 @@
             let marcas = JSON.parse(localStorage.marcas)
             for(let page of this.pages){
               if (!(page.slug in marcas)){
-                marcas[parseInt(page.slug)] = 100
+                marcas[page.slug] = 0
               }
             }
             localStorage.marcas = JSON.stringify(marcas)
@@ -56,7 +56,7 @@
           else{
             let marcas = {}
             for(let page of this.pages){
-              marcas[parseInt(page.slug)] = 100
+              marcas[page.slug] = 0
             }
             localStorage.marcas = JSON.stringify(marcas)
           }
@@ -84,6 +84,7 @@
           this.loading = true;
           await this.$nextTick()
           this.pages = await this.$content('preguntas')
+            .sortBy('id')
             .fetch()
           this.loading = false
         },

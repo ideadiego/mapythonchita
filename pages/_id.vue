@@ -1,5 +1,9 @@
 <template>
   <main class="px-4 flex flex-col flex-wrap justify-center items-center mb-12 mt-6">
+    <div class="btn-group grid grid-cols-2 mb-5">
+          <button v-on:click="prevPage" class="btn btn-sm btn-outline">Pregunta anterior</button>
+          <button v-on:click="nextPage" class="btn btn-sm btn-outline">Pregunta siguiente</button>
+        </div>
       <article v-if="page" class="mx-auto ">
         <label class="swap swap-flip w-90v sm:w-70v md:w-50v lg:w-40v">
         <input type="checkbox" class="hidden" v-model="tarjeta" />
@@ -34,6 +38,14 @@
         return {
         page, id
         }
-    }
+    },
+    methods: {
+        nextPage(){
+          this.$nuxt.$options.router.push(`/${parseInt(this.id)+1}`)
+        },
+        prevPage(){
+          this.$nuxt.$options.router.push(`/${parseInt(this.id)-1}`)
+        },
+      },
     }
 </script>
